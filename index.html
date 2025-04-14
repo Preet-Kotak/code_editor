@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeCraft - Web Code Editor</title>
+    <link rel="stylesheet" href="final.css">
+    <link rel="stylesheet" href="footer.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>CodeCraft</h1>
+        </div>
+        
+        <div class="hamburger-menu">
+            <div class="hamburger-icon">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        
+        <nav id="main-nav">
+            <ul>
+                <li><a href="index.html" class="active">Editor</a></li>
+                <li><a href="resources.html">Resources</a></li>
+                <li><a href="templates.html">Templates</a></li>
+                <li><a href="settings.html">Settings</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="editor-container">
+            <div class="editor-section">
+                <div class="tabs">
+                    <button class="tab-btn active" data-target="html-editor">HTML</button>
+                    <button class="tab-btn" data-target="css-editor">CSS</button>
+                    <button class="tab-btn" data-target="js-editor">JavaScript</button>
+                </div>
+                
+                <div class="editor-tabs">
+                    <div id="html-editor" class="editor-tab active">
+                        <textarea id="html-code" placeholder="Enter HTML code here..."></textarea>
+                    </div>
+                    
+                    <div id="css-editor" class="editor-tab">
+                        <textarea id="css-code" placeholder="Enter CSS code here..."></textarea>
+                    </div>
+                    
+                    <div id="js-editor" class="editor-tab">
+                        <textarea id="js-code" placeholder="Enter JavaScript code here..."></textarea>
+                    </div>
+                </div>
+                
+                <div class="editor-controls">
+                    <div class="preview-toggle">
+                        <label class="switch">
+                            <input type="checkbox" id="live-toggle">
+                            <span class="slider round"></span>
+                        </label>
+                        <span id="toggle-label">Live Preview</span>
+                    </div>
+                    
+                    <button id="run-btn">Run Code</button>
+                </div>
+            </div>
+            
+            <div class="preview-section">
+                <h3>Preview</h3>
+                <iframe id="preview-frame" title="Code Preview"></iframe>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-main">
+                <div class="footer-brand">
+                    <h2>CodeCraft</h2>
+                    <p>Your online code editor for web development.</p>
+                </div>
+                
+                <div class="footer-links">
+                    <div class="footer-section">
+                        <h3>Editor</h3>
+                        <ul>
+                            <li><a href="index.html">HTML Editor</a></li>
+                            <li><a href="index.html">CSS Editor</a></li>
+                            <li><a href="index.html">JavaScript Editor</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-section">
+                        <h3>Resources</h3>
+                        <ul>
+                            <li><a href="templates.html">Templates</a></li>
+                            <li><a href="resources.html">Tutorials</a></li>
+                            <li><a href="resources.html">Documentation</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-section">
+                        <h3>Support</h3>
+                        <ul>
+                            <li><a href="contact.html">Contact Us</a></li>
+                            <li><a href="contact.html">FAQ</a></li>
+                            <li><a href="#">Privacy Policy</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 CodeCraft Editor. All rights reserved.</p>
+                
+                <div class="social-icons">
+                    <a href="#" aria-label="Twitter"><i>🐦</i></a>
+                    <a href="#" aria-label="GitHub"><i>🐙</i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Load theme from localStorage
+        function loadTheme() {
+            const currentTheme = localStorage.getItem('currentTheme') || 'light';
+            applyTheme(currentTheme);
+        }
+        
+        // Apply theme to page
+        function applyTheme(theme) {
+            // Remove all theme classes first
+            document.body.classList.remove('theme-light', 'theme-dark', 'theme-contrast');
+            
+            // Add selected theme class
+            document.body.classList.add(`theme-${theme}`);
+            
+            // Update CSS custom properties for theme colors
+            const root = document.documentElement;
+            
+            if (theme === 'light') {
+                root.style.setProperty('--bg-color', '#f8f9fa');
+                root.style.setProperty('--text-color', '#333333');
+                root.style.setProperty('--primary-color', '#4299e1');
+                root.style.setProperty('--secondary-color', '#ebf8ff');
+                root.style.setProperty('--border-color', '#e2e8f0');
+            } else if (theme === 'dark') {
+                root.style.setProperty('--bg-color', '#1a202c');
+                root.style.setProperty('--text-color', '#e2e8f0');
+                root.style.setProperty('--primary-color', '#63b3ed');
+                root.style.setProperty('--secondary-color', '#2d3748');
+                root.style.setProperty('--border-color', '#4a5568');
+            } else if (theme === 'contrast') {
+                root.style.setProperty('--bg-color', '#000000');
+                root.style.setProperty('--text-color', '#ffffff');
+                root.style.setProperty('--primary-color', '#ffff00');
+                root.style.setProperty('--secondary-color', '#0000ff');
+                root.style.setProperty('--border-color', '#ffffff');
+            }
+        }
+        
+        // Initialize theme on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            loadTheme();
+        });
+        
+        // Load theme immediately in case DOMContentLoaded has already fired
+        if (document.readyState === 'complete' || document.readyState === 'interactive') {
+            loadTheme();
+        }
+    </script>
+</body>
+</html>

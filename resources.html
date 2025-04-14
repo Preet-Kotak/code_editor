@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Resources - CodeCraft</title>
+    <link rel="stylesheet" href="final.css">
+    <link rel="stylesheet" href="footer.css">
+    <style>
+        .resources-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .section-title {
+            margin-bottom: 1.5rem;
+            color: #2d3748;
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 0.8rem;
+        }
+        
+        .snippets-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .snippet-card {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            padding: 1.5rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .snippet-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+        
+        .snippet-card h3 {
+            margin-bottom: 1rem;
+            color: #4a5568;
+        }
+        
+        .snippet-card pre {
+            background-color: #f7fafc;
+            padding: 1rem;
+            border-radius: 4px;
+            overflow-x: auto;
+            margin-bottom: 1rem;
+        }
+        
+        .snippet-card code {
+            font-family: monospace;
+            color: #4a5568;
+        }
+        
+        .snippet-card .copy-btn {
+            background-color: #edf2f7;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+            transition: background-color 0.3s;
+        }
+        
+        .snippet-card .copy-btn:hover {
+            background-color: #e2e8f0;
+        }
+        
+        .resource-links {
+            margin-bottom: 3rem;
+        }
+        
+        .resource-links ul {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1rem;
+        }
+        
+        .resource-links li {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .resource-links li:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+        
+        .resource-links a {
+            display: block;
+            padding: 1rem;
+            color: #4a5568;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+        
+        .resource-links .icon {
+            font-size: 1.5rem;
+            color: #4299e1;
+        }
+        
+        .resource-links .resource-title {
+            font-weight: 500;
+            font-size: 1.1rem;
+        }
+        
+        @media (max-width: 768px) {
+            .snippets-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <h1>CodeCraft</h1>
+        </div>
+
+        <div class="hamburger-menu">
+            <div class="hamburger-icon">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+
+        <nav id="main-nav">
+            <ul>
+                <li><a href="index.html">Editor</a></li>
+                <li><a href="resources.html" class="active">Resources</a></li>
+                <li><a href="templates.html">Templates</a></li>
+                <li><a href="settings.html">Settings</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="resources-container">
+            <h2 class="section-title">HTML Snippets</h2>
+            <div class="snippets-grid" id="html-snippets">
+                <!-- HTML Snippets -->
+                <div class="snippet-card">
+                    <h3>Basic HTML Structure</h3>
+                    <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;Document&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;!-- Content --&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+                    <button class="copy-btn">Copy to clipboard</button>
+                </div>
+
+                <div class="snippet-card">
+                    <h3>Responsive Meta Tag</h3>
+                    <pre><code>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</code></pre>
+                    <button class="copy-btn">Copy to clipboard</button>
+                </div>
+
+                <div class="snippet-card">
+                    <h3>HTML5 Semantic Elements</h3>
+                    <pre><code>&lt;header&gt;&lt;/header&gt;
+&lt;nav&gt;&lt;/nav&gt;
+&lt;main&gt;&lt;/main&gt;
+&lt;section&gt;&lt;/section&gt;
+&lt;article&gt;&lt;/article&gt;
+&lt;aside&gt;&lt;/aside&gt;
+&lt;footer&gt;&lt;/footer&gt;</code></pre>
+                    <button class="copy-btn">Copy to clipboard</button>
+                </div>
+            </div>
+
+            <h2 class="section-title">CSS Snippets</h2>
+            <div class="snippets-grid" id="css-snippets">
+                <!-- CSS Snippets -->
+                <div class="snippet-card">
+                    <h3>Flexbox Container</h3>
+                    <pre><code>.flex-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}</code></pre>
+                    <button class="copy-btn">Copy to clipboard</button>
+                </div>
+
+                <div class="snippet-card">
+                    <h3>CSS Grid Layout</h3>
+                    <pre><code>.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1rem;
+}</code></pre>
+                    <button class="copy-btn">Copy to clipboard</button>
+                </div>
+
+                <div class="snippet-card">
+                    <h3>Media Query Template</h3>
+                    <pre><code>/* Mobile */
+@media (max-width: 767px) {
+    /* CSS rules */
+}
+
+/* Tablet */
+@media (min-width: 768px) and (max-width: 1023px) {
+    /* CSS rules */
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+    /* CSS rules */
+}</code></pre>
+                    <button class="copy-btn">Copy to clipboard</button>
+                </div>
+            </div>
+
+            <h2 class="section-title">JavaScript Snippets</h2>
+            <div class="snippets-grid" id="js-snippets">
+                <!-- JavaScript Snippets -->
+                <div class="snippet-card">
+                    <h3>DOM Ready Function</h3>
+                    <pre><code>document.addEventListener('DOMContentLoaded', function() {
+    // Your code here
+});</code></pre>
+                    <button class="copy-btn">Copy to clipboard</button>
+                </div>
+
+                <div class="snippet-card">
+                    <h3>Fetch API Template</h3>
+                    <pre><code>fetch('https://api.example.com/data')
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        return response.json();
+    })
+    .then(data => {
+        console.log(data);
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });</code></pre>
+                    <button class="copy-btn">Copy to clipboard</button>
+                </div>
+
+                <div class="snippet-card">
+                    <h3>Local Storage Helper</h3>
+                    <pre><code>// Save data to localStorage
+function saveData(key, data) {
+    localStorage.setItem(key, JSON.stringify(data));
+}
+
+// Load data from localStorage
+function loadData(key) {
+    const data = localStorage.getItem(key);
+    return data ? JSON.parse(data) : null;
+}</code></pre>
+                    <button class="copy-btn">Copy to clipboard</button>
+                </div>
+            </div>
+
+            <h2 class="section-title">External Resources</h2>
+            <div class="resource-links">
+                <ul>
+                    <li>
+                        <a href="https://developer.mozilla.org/en-US/" target="_blank">
+                            <span class="icon">📚</span>
+                            <span class="resource-title">MDN Web Docs</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://css-tricks.com/" target="_blank">
+                            <span class="icon">🎨</span>
+                            <span class="resource-title">CSS-Tricks</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.w3schools.com/" target="_blank">
+                            <span class="icon">🏫</span>
+                            <span class="resource-title">W3Schools</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/" target="_blank">
+                            <span class="icon">🐙</span>
+                            <span class="resource-title">GitHub</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stackoverflow.com/" target="_blank">
+                            <span class="icon">❓</span>
+                            <span class="resource-title">Stack Overflow</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://caniuse.com/" target="_blank">
+                            <span class="icon">✅</span>
+                            <span class="resource-title">Can I use</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-main">
+                <div class="footer-brand">
+                    <h2>CodeCraft</h2>
+                    <p>Your online code editor for web development.</p>
+                </div>
+                
+                <div class="footer-links">
+                    <div class="footer-section">
+                        <h3>Editor</h3>
+                        <ul>
+                            <li><a href="index.html">HTML Editor</a></li>
+                            <li><a href="index.html">CSS Editor</a></li>
+                            <li><a href="index.html">JavaScript Editor</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-section">
+                        <h3>Resources</h3>
+                        <ul>
+                            <li><a href="templates.html">Templates</a></li>
+                            <li><a href="resources.html">Tutorials</a></li>
+                            <li><a href="resources.html">Documentation</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-section">
+                        <h3>Support</h3>
+                        <ul>
+                            <li><a href="contact.html">Contact Us</a></li>
+                            <li><a href="contact.html">FAQ</a></li>
+                            <li><a href="#">Privacy Policy</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 CodeCraft Editor. All rights reserved.</p>
+                
+                <div class="social-icons">
+                    <a href="#" aria-label="Twitter"><i>🐦</i></a>
+                    <a href="#" aria-label="GitHub"><i>🐙</i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Load theme from localStorage
+        function loadTheme() {
+            const currentTheme = localStorage.getItem('currentTheme') || 'light';
+            applyTheme(currentTheme);
+        }
+        
+        // Apply theme to page
+        function applyTheme(theme) {
+            // Remove all theme classes first
+            document.body.classList.remove('theme-light', 'theme-dark', 'theme-contrast');
+            
+            // Add selected theme class
+            document.body.classList.add(`theme-${theme}`);
+            
+            // Update CSS custom properties for theme colors
+            const root = document.documentElement;
+            
+            if (theme === 'light') {
+                root.style.setProperty('--bg-color', '#f8f9fa');
+                root.style.setProperty('--text-color', '#333333');
+                root.style.setProperty('--primary-color', '#4299e1');
+                root.style.setProperty('--secondary-color', '#ebf8ff');
+                root.style.setProperty('--border-color', '#e2e8f0');
+            } else if (theme === 'dark') {
+                root.style.setProperty('--bg-color', '#1a202c');
+                root.style.setProperty('--text-color', '#e2e8f0');
+                root.style.setProperty('--primary-color', '#63b3ed');
+                root.style.setProperty('--secondary-color', '#2d3748');
+                root.style.setProperty('--border-color', '#4a5568');
+            } else if (theme === 'contrast') {
+                root.style.setProperty('--bg-color', '#000000');
+                root.style.setProperty('--text-color', '#ffffff');
+                root.style.setProperty('--primary-color', '#ffff00');
+                root.style.setProperty('--secondary-color', '#0000ff');
+                root.style.setProperty('--border-color', '#ffffff');
+            }
+        }
+        
+        // Copy button functionality
+        document.querySelectorAll('.copy-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                const codeElement = this.previousElementSibling.querySelector('code');
+                const text = codeElement.textContent;
+                
+                navigator.clipboard.writeText(text).then(() => {
+                    const originalText = this.textContent;
+                    this.textContent = 'Copied!';
+                    
+                    setTimeout(() => {
+                        this.textContent = originalText;
+                    }, 2000);
+                });
+            });
+        });
+        
+        // Hamburger menu toggle
+        document.querySelector('.hamburger-icon').addEventListener('click', function() {
+            this.classList.toggle('active');
+            document.getElementById('main-nav').classList.toggle('active');
+        });
+        
+        // Initialize theme on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            loadTheme();
+        });
+        
+        // Load theme immediately in case DOMContentLoaded has already fired
+        if (document.readyState === 'complete' || document.readyState === 'interactive') {
+            loadTheme();
+        }
+    </script>
+</body>
+
+</html>

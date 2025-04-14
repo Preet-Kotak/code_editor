@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeCraft - Settings</title>
+    <link rel="stylesheet" href="final.css">
+    <link rel="stylesheet" href="settings.css">
+    <link rel="stylesheet" href="footer.css">
+    <style>
+        /* Additional styles to ensure visibility */
+        .primary-btn, .secondary-btn {
+            cursor: pointer;
+            padding: 10px 20px;
+            border-radius: 4px;
+            font-weight: bold;
+            margin: 5px;
+        }
+        .primary-btn {
+            background-color: #4299e1;
+            color: white;
+            border: none;
+        }
+        .secondary-btn {
+            background-color: #f7fafc;
+            color: #4a5568;
+            border: 1px solid #e2e8f0;
+        }
+        .settings-notification {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #4299e1;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 4px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            transform: translateY(100px);
+            opacity: 0;
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+        .settings-notification.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>CodeCraft</h1>
+        </div>
+        
+        <div class="hamburger-menu">
+            <div class="hamburger-icon">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        
+        <nav id="main-nav">
+            <ul>
+                <li><a href="index.html">Editor</a></li>
+                <li><a href="resources.html">Resources</a></li>
+                <li><a href="templates.html">Templates</a></li>
+                <li><a href="settings.html" class="active">Settings</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="settings-container">
+            <h2>Editor Settings</h2>
+            
+            <div class="settings-section">
+                <h3>Appearance</h3>
+                <div class="setting-item">
+                    <label for="theme-selector">Editor Theme</label>
+                    <select id="theme-selector" onchange="changeTheme(this.value)">
+                        <option value="light">Light</option>
+                        <option value="dark">Dark</option>
+                        <option value="contrast">High Contrast</option>
+                    </select>
+                </div>
+                
+                <div class="setting-item">
+                    <label for="font-size">Font Size</label>
+                    <div class="range-container">
+                        <input type="range" id="font-size" min="10" max="24" value="14" oninput="updateFontSizeValue(this.value)">
+                        <span id="font-size-value">14px</span>
+                    </div>
+                </div>
+                
+                <div class="setting-item">
+                    <label for="font-family">Font Family</label>
+                    <select id="font-family">
+                        <option value="monospace">Monospace</option>
+                        <option value="consolas">Consolas</option>
+                        <option value="courier">Courier New</option>
+                        <option value="source-code-pro">Source Code Pro</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="settings-section">
+                <h3>Editor Behavior</h3>
+                <div class="setting-item">
+                    <label for="auto-save">Auto Save</label>
+                    <label class="switch">
+                        <input type="checkbox" id="auto-save" checked>
+                        <span class="slider round"></span>
+                    </label>
+                </div>
+                
+                <div class="setting-item">
+                    <label for="auto-indent">Auto Indent</label>
+                    <label class="switch">
+                        <input type="checkbox" id="auto-indent" checked>
+                        <span class="slider round"></span>
+                    </label>
+                </div>
+                
+                <div class="setting-item">
+                    <label for="line-wrap">Line Wrapping</label>
+                    <label class="switch">
+                        <input type="checkbox" id="line-wrap">
+                        <span class="slider round"></span>
+                    </label>
+                </div>
+                
+                <div class="setting-item">
+                    <label for="tab-size">Tab Size</label>
+                    <select id="tab-size">
+                        <option value="2">2 spaces</option>
+                        <option value="4" selected>4 spaces</option>
+                        <option value="8">8 spaces</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="settings-section">
+                <h3>Preview Settings</h3>
+                <div class="setting-item">
+                    <label for="default-preview">Default Preview Mode</label>
+                    <select id="default-preview">
+                        <option value="live">Live Preview</option>
+                        <option value="manual">Manual Run</option>
+                    </select>
+                </div>
+                
+                <div class="setting-item">
+                    <label for="preview-delay">Live Preview Delay (ms)</label>
+                    <div class="range-container">
+                        <input type="range" id="preview-delay" min="0" max="2000" step="100" value="300" oninput="updateDelayValue(this.value)">
+                        <span id="preview-delay-value">300ms</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="settings-section">
+                <h3>Storage & Data</h3>
+                <div class="setting-item">
+                    <button id="export-settings" class="settings-btn" onclick="exportSettingsHandler()">Export Settings</button>
+                    <button id="import-settings" class="settings-btn" onclick="importSettingsHandler()">Import Settings</button>
+                </div>
+                
+                <div class="setting-item">
+                    <button id="clear-data" class="settings-btn danger" onclick="clearDataHandler()">Clear All Data</button>
+                </div>
+            </div>
+            
+            <div class="settings-actions">
+                <button id="save-settings" class="primary-btn" onclick="saveSettingsHandler()">Save Settings</button>
+                <button id="reset-settings" class="secondary-btn" onclick="resetSettingsHandler()">Reset to Defaults</button>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-main">
+                <div class="footer-brand">
+                    <h2>CodeCraft</h2>
+                    <p>Your online code editor for web development.</p>
+                </div>
+                
+                <div class="footer-links">
+                    <div class="footer-section">
+                        <h3>Editor</h3>
+                        <ul>
+                            <li><a href="index.html">HTML Editor</a></li>
+                            <li><a href="index.html">CSS Editor</a></li>
+                            <li><a href="index.html">JavaScript Editor</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-section">
+                        <h3>Resources</h3>
+                        <ul>
+                            <li><a href="templates.html">Templates</a></li>
+                            <li><a href="resources.html">Tutorials</a></li>
+                            <li><a href="resources.html">Documentation</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-section">
+                        <h3>Support</h3>
+                        <ul>
+                            <li><a href="contact.html">Contact Us</a></li>
+                            <li><a href="contact.html">FAQ</a></li>
+                            <li><a href="#">Privacy Policy</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 CodeCraft Editor. All rights reserved.</p>
+                
+                <div class="social-icons">
+                    <a href="#" aria-label="Twitter"><i>🐦</i></a>
+                    <a href="#" aria-label="GitHub"><i>🐙</i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Default settings
+        const defaultSettings = {
+            theme: 'light',
+            fontSize: 14,
+            fontFamily: 'monospace',
+            autoSave: true,
+            autoIndent: true,
+            lineWrap: false,
+            tabSize: 4,
+            defaultPreview: 'live',
+            previewDelay: 300
+        };
+        
+        // Load settings from localStorage
+        function loadSettings() {
+            const savedSettings = localStorage.getItem('codecraftSettings');
+            let settings = defaultSettings;
+            
+            if (savedSettings) {
+                try {
+                    settings = JSON.parse(savedSettings);
+                } catch (e) {
+                    console.error('Error parsing settings:', e);
+                }
+            }
+            
+            // Apply loaded settings to UI elements
+            document.getElementById('theme-selector').value = settings.theme;
+            document.getElementById('font-size').value = settings.fontSize;
+            document.getElementById('font-size-value').textContent = `${settings.fontSize}px`;
+            document.getElementById('font-family').value = settings.fontFamily;
+            document.getElementById('auto-save').checked = settings.autoSave;
+            document.getElementById('auto-indent').checked = settings.autoIndent;
+            document.getElementById('line-wrap').checked = settings.lineWrap;
+            document.getElementById('tab-size').value = settings.tabSize;
+            document.getElementById('default-preview').value = settings.defaultPreview;
+            document.getElementById('preview-delay').value = settings.previewDelay;
+            document.getElementById('preview-delay-value').textContent = `${settings.previewDelay}ms`;
+            
+            // Apply theme immediately
+            applyTheme(settings.theme);
+        }
+        
+        // Save settings to localStorage
+        function saveSettingsHandler() {
+            const settings = {
+                theme: document.getElementById('theme-selector').value,
+                fontSize: parseInt(document.getElementById('font-size').value),
+                fontFamily: document.getElementById('font-family').value,
+                autoSave: document.getElementById('auto-save').checked,
+                autoIndent: document.getElementById('auto-indent').checked,
+                lineWrap: document.getElementById('line-wrap').checked,
+                tabSize: parseInt(document.getElementById('tab-size').value),
+                defaultPreview: document.getElementById('default-preview').value,
+                previewDelay: parseInt(document.getElementById('preview-delay').value)
+            };
+            
+            localStorage.setItem('codecraftSettings', JSON.stringify(settings));
+            
+            // Apply the theme immediately when saved
+            applyTheme(settings.theme);
+            
+            showNotification('Settings saved successfully');
+            return false;
+        }
+        
+        // Reset settings to defaults
+        function resetSettingsHandler() {
+            document.getElementById('theme-selector').value = defaultSettings.theme;
+            document.getElementById('font-size').value = defaultSettings.fontSize;
+            document.getElementById('font-size-value').textContent = `${defaultSettings.fontSize}px`;
+            document.getElementById('font-family').value = defaultSettings.fontFamily;
+            document.getElementById('auto-save').checked = defaultSettings.autoSave;
+            document.getElementById('auto-indent').checked = defaultSettings.autoIndent;
+            document.getElementById('line-wrap').checked = defaultSettings.lineWrap;
+            document.getElementById('tab-size').value = defaultSettings.tabSize;
+            document.getElementById('default-preview').value = defaultSettings.defaultPreview;
+            document.getElementById('preview-delay').value = defaultSettings.previewDelay;
+            document.getElementById('preview-delay-value').textContent = `${defaultSettings.previewDelay}ms`;
+            
+            // Apply default theme immediately
+            applyTheme(defaultSettings.theme);
+            
+            showNotification('Settings reset to defaults');
+            return false;
+        }
+        
+        // Apply theme to page
+        function applyTheme(theme) {
+            // Remove all theme classes first
+            document.body.classList.remove('theme-light', 'theme-dark', 'theme-contrast');
+            
+            // Add selected theme class
+            document.body.classList.add(`theme-${theme}`);
+            
+            // Store the current theme separately for easy access from other pages
+            localStorage.setItem('currentTheme', theme);
+            
+            // Update all form elements with theme-dependent styles
+            document.querySelectorAll('button, input, select, .toggle-switch').forEach(elem => {
+                elem.setAttribute('data-theme', theme);
+            });
+            
+            // Update CSS custom properties for theme colors
+            const root = document.documentElement;
+            
+            if (theme === 'light') {
+                root.style.setProperty('--bg-color', '#f8f9fa');
+                root.style.setProperty('--text-color', '#333333');
+                root.style.setProperty('--primary-color', '#4299e1');
+                root.style.setProperty('--secondary-color', '#ebf8ff');
+                root.style.setProperty('--border-color', '#e2e8f0');
+            } else if (theme === 'dark') {
+                root.style.setProperty('--bg-color', '#1a202c');
+                root.style.setProperty('--text-color', '#e2e8f0');
+                root.style.setProperty('--primary-color', '#63b3ed');
+                root.style.setProperty('--secondary-color', '#2d3748');
+                root.style.setProperty('--border-color', '#4a5568');
+            } else if (theme === 'contrast') {
+                root.style.setProperty('--bg-color', '#000000');
+                root.style.setProperty('--text-color', '#ffffff');
+                root.style.setProperty('--primary-color', '#ffff00');
+                root.style.setProperty('--secondary-color', '#0000ff');
+                root.style.setProperty('--border-color', '#ffffff');
+            }
+        }
+        
+        // Change theme handler
+        function changeTheme(theme) {
+            applyTheme(theme);
+        }
+        
+        // Update font size value
+        function updateFontSizeValue(value) {
+            document.getElementById('font-size-value').textContent = `${value}px`;
+        }
+        
+        // Update delay value
+        function updateDelayValue(value) {
+            document.getElementById('preview-delay-value').textContent = `${value}ms`;
+        }
+        
+        // Show notification
+        function showNotification(message) {
+            // Create notification element if it doesn't exist
+            let notification = document.querySelector('.settings-notification');
+            if (!notification) {
+                notification = document.createElement('div');
+                notification.className = 'settings-notification';
+                document.body.appendChild(notification);
+            }
+            
+            // Set message and show
+            notification.textContent = message;
+            notification.classList.add('show');
+            
+            // Hide after 3 seconds
+            setTimeout(() => {
+                notification.classList.remove('show');
+            }, 3000);
+        }
+        
+        // Export settings
+        function exportSettingsHandler() {
+            const settings = localStorage.getItem('codecraftSettings');
+            if (!settings) {
+                showNotification('No settings to export');
+                return;
+            }
+            
+            const blob = new Blob([settings], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'codecraft-settings.json';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+            
+            showNotification('Settings exported successfully');
+        }
+        
+        // Import settings
+        function importSettingsHandler() {
+            const input = document.createElement('input');
+            input.type = 'file';
+            input.accept = '.json';
+            
+            input.onchange = e => {
+                const file = e.target.files[0];
+                if (!file) return;
+                
+                const reader = new FileReader();
+                reader.onload = event => {
+                    try {
+                        const settings = JSON.parse(event.target.result);
+                        
+                        // Validate imported settings to ensure they have all required fields
+                        const requiredFields = Object.keys(defaultSettings);
+                        const missingFields = requiredFields.filter(field => settings[field] === undefined);
+                        
+                        if (missingFields.length > 0) {
+                            // Add missing fields from default settings
+                            missingFields.forEach(field => {
+                                settings[field] = defaultSettings[field];
+                            });
+                        }
+                        
+                        localStorage.setItem('codecraftSettings', JSON.stringify(settings));
+                        loadSettings();
+                        
+                        showNotification('Settings imported successfully');
+                    } catch (e) {
+                        showNotification('Error importing settings');
+                        console.error('Error importing settings:', e);
+                    }
+                };
+                reader.readAsText(file);
+            };
+            
+            input.click();
+        }
+        
+        // Clear all user data
+        function clearDataHandler() {
+            if (confirm('Are you sure you want to clear all data? This will remove all saved settings and projects.')) {
+                // Save the theme first so we can restore it later
+                const currentTheme = localStorage.getItem('currentTheme') || 'light';
+                
+                localStorage.clear();
+                
+                // Restore the theme so the UI doesn't suddenly change
+                localStorage.setItem('currentTheme', currentTheme);
+                
+                // Reset to default settings
+                localStorage.setItem('codecraftSettings', JSON.stringify(defaultSettings));
+                
+                // Reload UI with default settings
+                loadSettings();
+                
+                showNotification('All data cleared');
+            }
+        }
+        
+        // Hamburger menu toggle
+        document.querySelector('.hamburger-icon').addEventListener('click', function() {
+            this.classList.toggle('active');
+            document.getElementById('main-nav').classList.toggle('active');
+        });
+        
+        // Initialize settings on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            loadSettings();
+        });
+        
+        // Load settings immediately in case DOMContentLoaded has already fired
+        if (document.readyState === 'complete' || document.readyState === 'interactive') {
+            loadSettings();
+        }
+    </script>
+</body>
+</html>

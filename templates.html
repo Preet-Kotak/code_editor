@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeCraft Templates</title>
+    <link rel="stylesheet" href="final.css">
+    <link rel="stylesheet" href="templates-css.css">
+    <link rel="stylesheet" href="footer.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>CodeCraft</h1>
+        </div>
+        
+        <div class="hamburger-menu">
+            <div class="hamburger-icon">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        
+        <nav id="main-nav">
+            <ul>
+                <li><a href="index.html">Editor</a></li>
+                <li><a href="resources.html">Resources</a></li>
+                <li><a href="templates.html" class="active">Templates</a></li>
+                <li><a href="settings.html">Settings</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="templates-container">
+            <div class="templates-header">
+                <h2>Templates Gallery</h2>
+                <p>Choose from our pre-built templates to quickly start your projects</p>
+                
+                <div class="templates-filter">
+                    <div class="search-box">
+                        <input type="text" id="template-search" placeholder="Search templates...">
+                        <button id="search-btn"><span class="search-icon">🔍</span></button>
+                    </div>
+                    
+                    <div class="category-filter">
+                        <select id="category-select">
+                            <option value="all">All Categories</option>
+                            <option value="landing-page">Landing Pages</option>
+                            <option value="portfolio">Portfolios</option>
+                            <option value="blog">Blogs</option>
+                            <option value="ecommerce">E-commerce</option>
+                            <option value="dashboard">Dashboards</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="templates-grid" id="templates-grid">
+                <!-- Templates will be loaded dynamically via JavaScript -->
+            </div>
+        </div>
+        
+        <!-- Template Modal -->
+        <div id="template-modal" class="template-modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 id="modal-template-name">Template Name</h3>
+                    <button id="close-modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="template-preview">
+                        <iframe id="template-preview-frame"></iframe>
+                    </div>
+                    <div class="template-details">
+                        <p id="modal-template-description">Template description will appear here.</p>
+                        <div class="template-meta">
+                            <div class="meta-item">
+                                <span class="meta-label">Category:</span>
+                                <span id="modal-category">Category</span>
+                            </div>
+                            <div class="meta-item">
+                                <span class="meta-label">Tags:</span>
+                                <span id="modal-template-tags"></span>
+                            </div>
+                        </div>
+                        <div class="template-actions">
+                            <button id="use-template-btn" class="primary-btn">Use Template</button>
+                            <button id="customize-template-btn" class="secondary-btn">Customize</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-main">
+                <div class="footer-brand">
+                    <h2>CodeCraft</h2>
+                    <p>Your online code editor for web development.</p>
+                </div>
+                
+                <div class="footer-links">
+                    <div class="footer-section">
+                        <h3>Editor</h3>
+                        <ul>
+                            <li><a href="index.html">HTML Editor</a></li>
+                            <li><a href="index.html">CSS Editor</a></li>
+                            <li><a href="index.html">JavaScript Editor</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-section">
+                        <h3>Resources</h3>
+                        <ul>
+                            <li><a href="templates.html">Templates</a></li>
+                            <li><a href="resources.html">Tutorials</a></li>
+                            <li><a href="resources.html">Documentation</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-section">
+                        <h3>Support</h3>
+                        <ul>
+                            <li><a href="contact.html">Contact Us</a></li>
+                            <li><a href="contact.html">FAQ</a></li>
+                            <li><a href="#">Privacy Policy</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 CodeCraft Editor. All rights reserved.</p>
+                
+                <div class="social-icons">
+                    <a href="#" aria-label="Twitter"><i>🐦</i></a>
+                    <a href="#" aria-label="GitHub"><i>🐙</i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="templates.js"></script>
+    <script>
+        // Load theme from localStorage
+        function loadTheme() {
+            const currentTheme = localStorage.getItem('currentTheme') || 'light';
+            applyTheme(currentTheme);
+        }
+        
+        // Apply theme to page
+        function applyTheme(theme) {
+            document.body.classList.remove('theme-light', 'theme-dark', 'theme-contrast');
+            document.body.classList.add(`theme-${theme}`);
+            
+            const root = document.documentElement;
+            
+            if (theme === 'light') {
+                root.style.setProperty('--bg-color', '#f8f9fa');
+                root.style.setProperty('--text-color', '#333333');
+                root.style.setProperty('--primary-color', '#4299e1');
+                root.style.setProperty('--secondary-color', '#ebf8ff');
+                root.style.setProperty('--border-color', '#e2e8f0');
+            } else if (theme === 'dark') {
+                root.style.setProperty('--bg-color', '#1a202c');
+                root.style.setProperty('--text-color', '#e2e8f0');
+                root.style.setProperty('--primary-color', '#63b3ed');
+                root.style.setProperty('--secondary-color', '#2d3748');
+                root.style.setProperty('--border-color', '#4a5568');
+            } else if (theme === 'contrast') {
+                root.style.setProperty('--bg-color', '#000000');
+                root.style.setProperty('--text-color', '#ffffff');
+                root.style.setProperty('--primary-color', '#ffff00');
+                root.style.setProperty('--secondary-color', '#0000ff');
+                root.style.setProperty('--border-color', '#ffffff');
+            }
+        }
+        
+        // Hamburger menu toggle
+        document.querySelector('.hamburger-icon').addEventListener('click', function() {
+            this.classList.toggle('active');
+            document.getElementById('main-nav').classList.toggle('active');
+        });
+        
+        // Initialize theme on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            loadTheme();
+        });
+        
+        // Load theme immediately in case DOMContentLoaded has already fired
+        if (document.readyState === 'complete' || document.readyState === 'interactive') {
+            loadTheme();
+        }
+    </script>
+</body>
+</html>
