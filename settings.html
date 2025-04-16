@@ -117,29 +117,13 @@
                 </div>
                 
                 <div class="setting-item">
-                    <label for="auto-indent">Auto Indent</label>
-                    <label class="switch">
-                        <input type="checkbox" id="auto-indent" checked>
-                        <span class="slider round"></span>
-                    </label>
-                </div>
-                
-                <div class="setting-item">
                     <label for="line-wrap">Line Wrapping</label>
                     <label class="switch">
                         <input type="checkbox" id="line-wrap">
                         <span class="slider round"></span>
                     </label>
                 </div>
-                
-                <div class="setting-item">
-                    <label for="tab-size">Tab Size</label>
-                    <select id="tab-size">
-                        <option value="2">2 spaces</option>
-                        <option value="4" selected>4 spaces</option>
-                        <option value="8">8 spaces</option>
-                    </select>
-                </div>
+               
             </div>
             
             <div class="settings-section">
@@ -237,9 +221,7 @@
             fontSize: 14,
             fontFamily: 'monospace',
             autoSave: true,
-            autoIndent: true,
             lineWrap: false,
-            tabSize: 4,
             defaultPreview: 'live',
             previewDelay: 300
         };
@@ -263,9 +245,7 @@
             document.getElementById('font-size-value').textContent = `${settings.fontSize}px`;
             document.getElementById('font-family').value = settings.fontFamily;
             document.getElementById('auto-save').checked = settings.autoSave;
-            document.getElementById('auto-indent').checked = settings.autoIndent;
             document.getElementById('line-wrap').checked = settings.lineWrap;
-            document.getElementById('tab-size').value = settings.tabSize;
             document.getElementById('default-preview').value = settings.defaultPreview;
             document.getElementById('preview-delay').value = settings.previewDelay;
             document.getElementById('preview-delay-value').textContent = `${settings.previewDelay}ms`;
@@ -281,9 +261,7 @@
                 fontSize: parseInt(document.getElementById('font-size').value),
                 fontFamily: document.getElementById('font-family').value,
                 autoSave: document.getElementById('auto-save').checked,
-                autoIndent: document.getElementById('auto-indent').checked,
                 lineWrap: document.getElementById('line-wrap').checked,
-                tabSize: parseInt(document.getElementById('tab-size').value),
                 defaultPreview: document.getElementById('default-preview').value,
                 previewDelay: parseInt(document.getElementById('preview-delay').value)
             };
@@ -303,9 +281,7 @@
             document.getElementById('font-size-value').textContent = `${defaultSettings.fontSize}px`;
             document.getElementById('font-family').value = defaultSettings.fontFamily;
             document.getElementById('auto-save').checked = defaultSettings.autoSave;
-            document.getElementById('auto-indent').checked = defaultSettings.autoIndent;
             document.getElementById('line-wrap').checked = defaultSettings.lineWrap;
-            document.getElementById('tab-size').value = defaultSettings.tabSize;
             document.getElementById('default-preview').value = defaultSettings.defaultPreview;
             document.getElementById('preview-delay').value = defaultSettings.previewDelay;
             document.getElementById('preview-delay-value').textContent = `${defaultSettings.previewDelay}ms`;
