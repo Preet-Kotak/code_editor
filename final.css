@@ -3,7 +3,7 @@
 /* 🌑 Dark Mode */
 body.theme-dark {
     background-color: #121212 !important;
-    color: #e0e0e0 !important;
+    color: #fff !important;
 }
 
 /* Update all containers, cards, modals, and sections */
