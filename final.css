@@ -34,6 +34,38 @@ body.theme-dark button:hover {
     background-color: #444 !important;
 }
 
+body.theme-contrast .container, 
+body.theme-contrast .card, 
+body.theme-contrast .modal-content, 
+body.theme-contrast header, 
+body.theme-contrast footer, 
+body.theme-contrast main, 
+body.theme-contrast section {
+    background-color: black !important;
+    color: yellow !important;
+    border: 4px solid yellow !important;
+}
+
+body.theme-contrast a {
+    color: cyan !important;
+    text-decoration: underline !important;
+    font-weight: bold !important;
+}
+
+
+body.theme-contrast button {
+    background-color: yellow !important;
+    color: black !important;
+    border: 4px solid white !important;
+    font-weight: bold !important;
+}
+
+body.theme-contrast button:hover {
+    background-color: cyan !important;
+    color: black !important;
+}
+
+
 
 :root {
     --primary-dark: #2d3748;
