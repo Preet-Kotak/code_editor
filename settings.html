@@ -339,12 +339,12 @@
         
         // Update font size value
         function updateFontSizeValue(value) {
-            document.getElementById('font-size-value').textContent = `${value}px`;
+            document.getElementById('font-size-value').innerHTML = `${value}px`;
         }
         
         // Update delay value
         function updateDelayValue(value) {
-            document.getElementById('preview-delay-value').textContent = `${value}ms`;
+            document.getElementById('preview-delay-value').innerHTML = `${value}ms`;
         }
         
         // Show notification
@@ -358,7 +358,7 @@
             }
             
             // Set message and show
-            notification.textContent = message;
+            notification.innerHTML = message;
             notification.classList.add('show');
             
             // Hide after 3 seconds
@@ -440,7 +440,7 @@
                 // Restore the theme so the UI doesn't suddenly change
                 localStorage.setItem('currentTheme', currentTheme);
                 
-                // Reset to default settings
+                // Reset to default settings 
                 localStorage.setItem('codecraftSettings', JSON.stringify(defaultSettings));
                 
                 // Reload UI with default settings
