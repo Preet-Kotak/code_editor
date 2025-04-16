@@ -1,11 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CodeCraft - Web Code Editor</title>
     <link rel="stylesheet" href="final.css">
     <link rel="stylesheet" href="footer.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
     <header>
@@ -117,9 +115,9 @@
                 <p>&copy; 2025 CodeCraft Editor. All rights reserved.</p>
                 
                 <div class="social-icons">
-                    <a href="#" aria-label="Twitter"><i>🐦</i></a>
-                    <a href="#" aria-label="GitHub"><i>🐙</i></a>
-                </div>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                     <a href="#"><i class="fab fa-discord"></i></a>
             </div>
         </div>
     </footer>
@@ -155,13 +153,7 @@
                 root.style.setProperty('--primary-color', '#63b3ed');
                 root.style.setProperty('--secondary-color', '#2d3748');
                 root.style.setProperty('--border-color', '#4a5568');
-            } else if (theme === 'contrast') {
-                root.style.setProperty('--bg-color', '#000000');
-                root.style.setProperty('--text-color', '#ffffff');
-                root.style.setProperty('--primary-color', '#ffff00');
-                root.style.setProperty('--secondary-color', '#0000ff');
-                root.style.setProperty('--border-color', '#ffffff');
-            }
+            } 
         }
         
         // Initialize theme on page load
