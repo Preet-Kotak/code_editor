@@ -259,16 +259,10 @@ console.log("Hello from JavaScript!");`;
 
         // Apply theme
         if (settings.theme) {
-            document.body.classList.remove('theme-light', 'theme-dark');
+            document.body.classList.remove('theme-light', 'theme-dark','theme-contrast');
             document.body.classList.add(`theme-${settings.theme}`);
         }
 
-        // Apply high contrast if enabled
-        if (settings.highContrast) {
-            document.body.classList.add('high-contrast');
-        } else {
-            document.body.classList.remove('high-contrast');
-        }
 
         // Apply font settings to code editors
         if (htmlCode && cssCode && jsCode) {
@@ -430,25 +424,11 @@ console.log("Hello from JavaScript!");`;
             });
         }
 
-        // Add save and load buttons if they exist
-        const saveBtn = document.getElementById('save-btn');
-        const loadBtn = document.getElementById('load-btn');
-
-        if (saveBtn) {
-            saveBtn.addEventListener('click', saveCurrentCode);
-        }
-
-        if (loadBtn) {
-            loadBtn.addEventListener('click', loadSavedCode);
-        }
+        
 
         // Add keyboard shortcuts
         document.addEventListener('keydown', function (e) {
-            // Ctrl+S or Cmd+S to save
-            if ((e.ctrlKey || e.metaKey) && e.key === 's') {
-                e.preventDefault();
-                saveCurrentCode();
-            }
+            
 
             // Ctrl+R or Cmd+R to run
             if ((e.ctrlKey || e.metaKey) && e.key === 'r') {
