@@ -1,38 +1,36 @@
-<!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <title>Code Resources - CodeCraft</title>
     <link rel="stylesheet" href="final.css">
     <link rel="stylesheet" href="footer.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         .resources-container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 2rem;
+            padding: 30px;
         }
         
         .section-title {
-            margin-bottom: 1.5rem;
+            margin-bottom: 25px;
             color: #2d3748;
             border-bottom: 2px solid #e2e8f0;
-            padding-bottom: 0.8rem;
+            padding-bottom: 10px;
         }
         
         .snippets-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-bottom: 3rem;
+            gap: 30px;
+            margin-bottom: 45px;
         }
         
         .snippet-card {
             background-color: white;
             border-radius: 8px;
             box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-            padding: 1.5rem;
+            padding: 25px;
             transition: transform 0.3s, box-shadow 0.3s;
         }
         
@@ -42,16 +40,16 @@
         }
         
         .snippet-card h3 {
-            margin-bottom: 1rem;
+            margin-bottom: 15px;
             color: #4a5568;
         }
         
         .snippet-card pre {
             background-color: #f7fafc;
-            padding: 1rem;
+            padding: 15px;
             border-radius: 4px;
             overflow-x: auto;
-            margin-bottom: 1rem;
+            margin-bottom: 15px;
         }
         
         .snippet-card code {
@@ -62,13 +60,13 @@
         .snippet-card .copy-btn {
             background-color: #edf2f7;
             border: none;
-            padding: 0.5rem 1rem;
+            padding: 8px 16px;
             border-radius: 4px;
             cursor: pointer;
             display: flex;
             align-items: center;
-            gap: 0.5rem;
-            font-size: 0.9rem;
+            gap: 8px;
+            font-size: 15px;
             transition: background-color 0.3s;
         }
         
@@ -77,7 +75,7 @@
         }
         
         .resource-links {
-            margin-bottom: 3rem;
+            margin-bottom: 45px;
         }
         
         .resource-links ul {
@@ -101,22 +99,22 @@
         
         .resource-links a {
             display: block;
-            padding: 1rem;
+            padding: 15px;
             color: #4a5568;
             text-decoration: none;
             display: flex;
             align-items: center;
-            gap: 0.8rem;
+            gap: 15px;
         }
         
         .resource-links .icon {
-            font-size: 1.5rem;
+            font-size: 25px;
             color: #4299e1;
         }
         
         .resource-links .resource-title {
             font-weight: 500;
-            font-size: 1.1rem;
+            font-size: 15px;
         }
         
         @media (max-width: 768px) {
@@ -156,7 +154,8 @@
         <div class="resources-container">
             <h2 class="section-title">HTML Snippets</h2>
             <div class="snippets-grid" id="html-snippets">
-                <!-- HTML Snippets -->
+               
+
                 <div class="snippet-card">
                     <h3>Basic HTML Structure</h3>
                     <pre><code>&lt;!DOCTYPE html&gt;
@@ -193,7 +192,8 @@
 
             <h2 class="section-title">CSS Snippets</h2>
             <div class="snippets-grid" id="css-snippets">
-                <!-- CSS Snippets -->
+                
+                
                 <div class="snippet-card">
                     <h3>Flexbox Container</h3>
                     <pre><code>.flex-container {
@@ -237,7 +237,8 @@
 
             <h2 class="section-title">JavaScript Snippets</h2>
             <div class="snippets-grid" id="js-snippets">
-                <!-- JavaScript Snippets -->
+                
+
                 <div class="snippet-card">
                     <h3>DOM Ready Function</h3>
                     <pre><code>document.addEventListener('DOMContentLoaded', function() {
@@ -366,9 +367,9 @@ function loadData(key) {
                 <p>&copy; 2025 CodeCraft Editor. All rights reserved.</p>
                 
                 <div class="social-icons">
-                    <a href="#" aria-label="Twitter"><i>🐦</i></a>
-                    <a href="#" aria-label="GitHub"><i>🐙</i></a>
-                </div>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                     <a href="#"><i class="fab fa-discord"></i></a>
             </div>
         </div>
     </footer>
@@ -411,8 +412,17 @@ function loadData(key) {
                 root.style.setProperty('--border-color', '#ffffff');
             }
         }
+
+        // Initialize theme on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            loadTheme();
+        });
         
-        // Copy button functionality
+        // Load theme immediately in case DOMContentLoaded has already fired
+        if (document.readyState === 'complete' || document.readyState === 'interactive') {
+            loadTheme();
+        }
+        
         document.querySelectorAll('.copy-btn').forEach(button => {
             button.addEventListener('click', function() {
                 const codeElement = this.previousElementSibling.querySelector('code');
@@ -429,21 +439,12 @@ function loadData(key) {
             });
         });
         
-        // Hamburger menu toggle
         document.querySelector('.hamburger-icon').addEventListener('click', function() {
             this.classList.toggle('active');
             document.getElementById('main-nav').classList.toggle('active');
         });
         
-        // Initialize theme on page load
-        document.addEventListener('DOMContentLoaded', function() {
-            loadTheme();
-        });
         
-        // Load theme immediately in case DOMContentLoaded has already fired
-        if (document.readyState === 'complete' || document.readyState === 'interactive') {
-            loadTheme();
-        }
     </script>
 </body>
 
