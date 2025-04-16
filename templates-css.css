@@ -1,34 +1,33 @@
-/* Additional styles for templates page */
-/* Import these into your main styles.css file or include as a separate stylesheet */
+
 
 .templates-container {
     max-width: 1400px;
     margin: 0 auto;
-    padding: 1.5rem;
+    padding: 25px;
 }
 
 .templates-header {
-    margin-bottom: 2rem;
+    margin-bottom: 30px;
     text-align: center;
 }
 
 .templates-header h2 {
-    font-size: 2rem;
+    font-size: 30px;
     color: #2d3748;
-    margin-bottom: 0.5rem;
+    margin-bottom: 8px;
 }
 
 .templates-header p {
     color: #718096;
-    margin-bottom: 1.5rem;
+    margin-bottom: 25px;
 }
 
 .templates-filter {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 1rem;
-    margin: 1.5rem 0;
+    gap: 15px;
+    margin: 25px 0;
 }
 
 .search-box {
@@ -39,10 +38,10 @@
 
 .search-box input {
     flex: 1;
-    padding: 0.75rem 1rem;
+    padding: 10px 15px;
     border: 1px solid #e2e8f0;
     border-radius: 4px 0 0 4px;
-    font-size: 0.95rem;
+    font-size: 15px;
 }
 
 .search-box button {
@@ -50,7 +49,7 @@
     color: white;
     border: none;
     border-radius: 0 4px 4px 0;
-    padding: 0 1rem;
+    padding: 0 15px;
     cursor: pointer;
     transition: background-color 0.3s;
 }
@@ -60,18 +59,18 @@
 }
 
 .category-filter select {
-    padding: 0.75rem 1rem;
+    padding: 10px 15px;
     border: 1px solid #e2e8f0;
     border-radius: 4px;
     background-color: white;
-    font-size: 0.95rem;
+    font-size: 15px;
     min-width: 150px;
 }
 
 .templates-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 1.5rem;
+    gap: 25px;
 }
 
 .template-card {
@@ -107,33 +106,33 @@
 }
 
 .template-info {
-    padding: 1rem;
+    padding: 15px;
 }
 
 .template-info h3 {
-    font-size: 1.1rem;
-    margin-bottom: 0.5rem;
+    font-size: 1.15px;
+    margin-bottom: 10px;
     color: #2d3748;
 }
 
 .template-info p {
-    font-size: 0.9rem;
+    font-size: 15px;
     color: #718096;
-    margin-bottom: 0.75rem;
+    margin-bottom: 10px;
     line-height: 1.4;
 }
 
 .template-tags {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.5rem;
+    gap: 10px;
 }
 
 .template-tag {
     background-color: #edf2f7;
     color: #4a5568;
-    font-size: 0.75rem;
-    padding: 0.25rem 0.5rem;
+    font-size: 10px;
+    padding: 5px 10 px;
     border-radius: 4px;
 }
 
@@ -153,7 +152,7 @@
 .modal-content {
     background-color: white;
     margin: 5% auto;
-    padding: 2rem;
+    padding: 30px;
     max-width: 900px;
     width: 90%;
     border-radius: 8px;
@@ -162,9 +161,9 @@
 
 .close-modal {
     position: absolute;
-    top: 1rem;
-    right: 1.5rem;
-    font-size: 1.5rem;
+    top: 15px;
+    right: 25px;
+    font-size: 25px;
     cursor: pointer;
     color: #718096;
 }
@@ -174,7 +173,7 @@
 }
 
 .template-preview {
-    margin: 1.5rem 0;
+    margin: 25px 0;
     border: 1px solid #e2e8f0;
     border-radius: 4px;
     min-height: 400px;
@@ -187,23 +186,23 @@
 }
 
 .template-details {
-    margin-bottom: 1.5rem;
+    margin-bottom: 25px;
 }
 
 .template-details p {
     color: #4a5568;
     line-height: 1.6;
-    margin-bottom: 1rem;
+    margin-bottom: 15px;
 }
 
 .template-actions {
     display: flex;
-    gap: 1rem;
+    gap: 15px;
     justify-content: center;
 }
 
 .primary-btn, .secondary-btn {
-    padding: 0.75rem 1.5rem;
+    padding: 10px 25px;
     border-radius: 4px;
     font-weight: bold;
     cursor: pointer;
@@ -243,7 +242,7 @@
     
     .modal-content {
         width: 95%;
-        padding: 1.5rem;
+        padding: 25px;
     }
     
     .template-actions {

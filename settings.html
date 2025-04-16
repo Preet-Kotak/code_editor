@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="final.css">
     <link rel="stylesheet" href="settings.css">
     <link rel="stylesheet" href="footer.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         /* Additional styles to ensure visibility */
         .primary-btn, .secondary-btn {
@@ -221,12 +222,13 @@
                 <p>&copy; 2025 CodeCraft Editor. All rights reserved.</p>
                 
                 <div class="social-icons">
-                    <a href="#" aria-label="Twitter"><i>🐦</i></a>
-                    <a href="#" aria-label="GitHub"><i>🐙</i></a>
-                </div>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                     <a href="#"><i class="fab fa-discord"></i></a>
             </div>
         </div>
     </footer>
+
 
     <script>
         // Default settings
@@ -292,7 +294,6 @@
             applyTheme(settings.theme);
             
             showNotification('Settings saved successfully');
-            return false;
         }
         
         // Reset settings to defaults
@@ -313,7 +314,6 @@
             applyTheme(defaultSettings.theme);
             
             showNotification('Settings reset to defaults');
-            return false;
         }
         
         // Apply theme to page

@@ -276,7 +276,7 @@ console.log("Hello from JavaScript!");`;
 
             codeAreas.forEach(area => {
                 if (settings.fontFamily) {
-                    area.style.fontFamily = getFontFamilyValue(settings.fontFamily);
+                    area.style=`font-family:${settings.fontFamily}`;
                 }
                 if (settings.fontSize) {
                     area.style.fontSize = `${settings.fontSize}px`;

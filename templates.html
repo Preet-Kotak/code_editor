@@ -1,12 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CodeCraft Templates</title>
     <link rel="stylesheet" href="final.css">
     <link rel="stylesheet" href="templates-css.css">
     <link rel="stylesheet" href="footer.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
     <header>
@@ -59,11 +57,11 @@
             </div>
             
             <div class="templates-grid" id="templates-grid">
-                <!-- Templates will be loaded dynamically via JavaScript -->
+            
             </div>
         </div>
         
-        <!-- Template Modal -->
+        
         <div id="template-modal" class="template-modal">
             <div class="modal-content">
                 <div class="modal-header">
@@ -138,12 +136,13 @@
                 <p>&copy; 2025 CodeCraft Editor. All rights reserved.</p>
                 
                 <div class="social-icons">
-                    <a href="#" aria-label="Twitter"><i>🐦</i></a>
-                    <a href="#" aria-label="GitHub"><i>🐙</i></a>
-                </div>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                     <a href="#"><i class="fab fa-discord"></i></a>
             </div>
         </div>
     </footer>
+
 
     <script src="templates.js"></script>
     <script>
@@ -181,12 +180,6 @@
             }
         }
         
-        // Hamburger menu toggle
-        document.querySelector('.hamburger-icon').addEventListener('click', function() {
-            this.classList.toggle('active');
-            document.getElementById('main-nav').classList.toggle('active');
-        });
-        
         // Initialize theme on page load
         document.addEventListener('DOMContentLoaded', function() {
             loadTheme();
@@ -196,6 +189,13 @@
         if (document.readyState === 'complete' || document.readyState === 'interactive') {
             loadTheme();
         }
+
+        document.querySelector('.hamburger-icon').addEventListener('click', function() {
+            this.classList.toggle('active');
+            document.getElementById('main-nav').classList.toggle('active');
+        });
+        
+        
     </script>
 </body>
 </html>
