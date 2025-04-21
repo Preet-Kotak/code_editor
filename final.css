@@ -22,7 +22,9 @@ body.theme-dark section{
 body.theme-dark textarea{
     color: #333;
 }
-
+body.theme-dark .logo{
+    color: white;
+}
 /* Dark mode buttons */
 body.theme-dark button {
     background-color: #333 !important;
@@ -44,6 +46,10 @@ body.theme-contrast section {
     background-color: black !important;
     color: yellow !important;
     border: 4px solid yellow !important;
+}
+
+body.theme-contrast textarea{
+    color: green;
 }
 
 body.theme-contrast a {
